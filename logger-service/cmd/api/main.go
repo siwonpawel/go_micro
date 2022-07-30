@@ -46,11 +46,7 @@ func main() {
 		Models: data.New(client),
 	}
 
-	go app.serve()
-
-}
-
-func (app *Config) serve() {
+	log.Println("Starting service...")
 	srv := &http.Server{
 		Addr:    fmt.Sprintf(":%s", webPort),
 		Handler: app.routes(),
@@ -73,5 +69,13 @@ func connectToMongo() (*mongo.Client, error) {
 		return nil, err
 	}
 
+	ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
+	defer cancel()
+	if err = c.Ping(ctx, nil); err != nil {
+		log.Println("Can't ping mongo service!")
+		return nil, err
+	}
+
+	log.Println("Connected to Mongo...")
 	return c, nil
 }
