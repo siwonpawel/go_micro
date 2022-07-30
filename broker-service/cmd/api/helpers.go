@@ -68,4 +68,6 @@ func (app *Config) errorJSON(w http.ResponseWriter, err error, status ...int) er
 	}
 
 	app.writeJSON(w, statusCode, payload)
+
+	return nil
 }
