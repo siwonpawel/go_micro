@@ -12,6 +12,14 @@ services:
       mode: repliacated
       replicas: 1
 
+  logger-service:
+    build:
+      context: ./../logger-service
+      dockerfile: ./../logger-service/logger-service.dockerfile
+    restart: always
+    deploy:
+      mode: repliacated
+      replicas: 1
   
   authentication-service:
     build:
