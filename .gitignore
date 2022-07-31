@@ -4,3 +4,4 @@ logger-service/loggerServiceApp
 broker-service/brokerApp
 front-end/frontApp
 authentication-service/authApp
+mail-service/mailServiceApp
