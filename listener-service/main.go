@@ -14,7 +14,7 @@ func main() {
 
 	rabbitConn, err := connect()
 	if err != nil {
-		log.Println("err")
+		log.Println(err)
 		os.Exit(1)
 	}
 	defer rabbitConn.Close()
