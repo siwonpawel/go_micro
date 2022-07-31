@@ -68,7 +68,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: users
     volumes:
-      - ./db-data/postgres/:/var/lib/postgresql/data/
+      - ./db-data/postgres/:/var/lib/postgresql/data/:Z
   
   mongo:
     image: 'mongo:4.2.16-bionic'
