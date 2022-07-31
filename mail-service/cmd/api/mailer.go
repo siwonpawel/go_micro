@@ -71,10 +71,9 @@ func (m *Mail) SendSMTPMessage(msg Message) error {
 	}
 
 	email := mail.NewMSG()
-	email.SetFrom(msg.From).
-		AddTo(msg.To).
-		SetSubject(msg.Subject)
-
+	email.SetFrom(msg.From)
+	email.AddTo(msg.To)
+	email.SetSubject(msg.Subject)
 	email.SetBody(mail.TextPlain, plainMessage)
 	email.AddAlternative(mail.TextHTML, formattedMessage)
 
